@@ -17,7 +17,7 @@ body {
 .menu {
     position: fixed;
     z-index: 1000;
-    width: 150px;
+    width: max-content;
     background: #1b1a1a;
     border-radius: 5px;
     display: none;
@@ -39,4 +39,24 @@ body {
 
 .menu .menu-item:hover {
     background: #343434;
+}
+
+.message-module {
+    margin-bottom: 20px;
+    max-width: max-content;
+    padding: 10px 20px;
+
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+
+    border-radius: 4px;
+    background: #505050;
+
+    transition: all .5s ease;
+    opacity: 0;
+}
+
+.message-module.open {
+    opacity: 1;
 }
