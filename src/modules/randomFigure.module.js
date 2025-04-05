@@ -3,6 +3,8 @@ import { random } from "../utils";
 import { getRandomColorHex } from "../utils";
 
 export class RandomFigure extends Module {
+  #$figure;
+
   constructor() {
     super("randomFigure", "Произвольная фигура");
   }
@@ -27,7 +29,9 @@ export class RandomFigure extends Module {
       Math.asin(minContainerSize / diagonal).toFixed(2) - 0.05;
     const figureRotate = random(0, maxAngleRad);
     // создание фигуры
+    document.querySelector("div.figure")?.remove();
     const figure = document.createElement("div");
+    figure.className = "figure";
     figure.style.height = `${figureHeight}px`;
     figure.style.width = `${figureWidth}px`;
 
@@ -43,7 +47,7 @@ export class RandomFigure extends Module {
     figure.style.boxSizing = "border-box";
     figure.style.backgroundColor = getRandomColorHex();
 
-    this.$figure = figure;
-    document.body.append(this.$figure);
+    this.#$figure = figure;
+    document.body.append(this.#$figure);
   }
 }
