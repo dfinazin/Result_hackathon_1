@@ -40,3 +40,55 @@ body {
 .menu .menu-item:hover {
     background: #343434;
 }
+
+.jokes-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.jokes-modal__content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 80%;
+    position: relative;
+}
+
+.jokes-modal__setup {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.jokes-modal__punchline {
+    font-size: 16px;
+    color: #666;
+    cursor: pointer;
+    filter: blur(5px);
+    transition: filter 0.3s;
+    margin-bottom: 20px;
+}
+
+.jokes-modal__punchline--visible {
+    filter: none;
+}
+
+.jokes-modal__close-button {
+    padding: 8px 16px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.jokes-modal__close-button:hover {
+    background-color: #e0e0e0;
+}
