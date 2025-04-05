@@ -80,7 +80,7 @@ document.addEventListener('contextmenu', (event) => {
 
 menuElement.addEventListener('click', (event) => {
     if (event.target.dataset.type === "message") {
-        messageModule.trigger("Уведомление");
+        messageModule.trigger("Здесь находится какой то текст");
         menuModule.close();
     }
 })
