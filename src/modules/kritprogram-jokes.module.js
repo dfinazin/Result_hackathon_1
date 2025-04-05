@@ -1,4 +1,4 @@
-import { Module } from '../core/module';
+import { Module } from '../core/module.js';
 import { fetchRandomProgrammingJoke } from '../utils.js';
 
 export class JokesModule extends Module {
