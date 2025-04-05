@@ -3,15 +3,16 @@ import { MessageModule } from './modules/timur-message.module.js'
 import { randomBackgroundColor } from './modules/Dmitry-randomBackgroundColor.module.js';
 import { BoardModule } from './modules/Vlad-board.module.js';
 
+
 export class ContextMenu extends Menu {
     constructor(selector) {
-        super(selector)
+        super(selector);
 
         this.el = document.querySelector(selector);
     }
 
     open(posX, posY) {
-        this.el.classList.add('open');
+        this.el.classList.add("open");
         this.el.style.top = `${posY}px`;
         this.el.style.left = `${posX}px`;
     }
@@ -21,7 +22,7 @@ export class ContextMenu extends Menu {
     }
 
     close() {
-        this.el.classList.remove('open');
+        this.el.classList.remove("open");
     }
 }
 
@@ -33,11 +34,11 @@ function getMenuSize(menuElement) {
 
     let needRestore = false;
 
-    if (getComputedStyle(menuElement).display === 'none') {
-        menuElement.style.visibility = 'hidden';
-        menuElement.style.display = 'block';
-        menuElement.style.top = '-9999px';
-        menuElement.style.left = '-9999px';
+    if (getComputedStyle(menuElement).display === "none") {
+        menuElement.style.visibility = "hidden";
+        menuElement.style.display = "block";
+        menuElement.style.top = "-9999px";
+        menuElement.style.left = "-9999px";
         needRestore = true;
     }
 
@@ -55,8 +56,8 @@ function getMenuSize(menuElement) {
 }
 
 const messageModule = new MessageModule();
-const menuModule = new ContextMenu('#menu');
-const menuElement = document.querySelector('#menu');
+const menuModule = new ContextMenu("#menu");
+const menuElement = document.querySelector("#menu");
 
 const randomBackgroundModule = new randomBackgroundColor();
 const boardModule = new BoardModule();
@@ -66,7 +67,7 @@ menuModule.add(messageModule.toHTML());
 menuModule.add(randomBackgroundModule.toHTML());
 menuModule.add(boardModule.toHTML());
 
-document.addEventListener('contextmenu', (event) => {
+document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
 
     const { width: menuWidth, height: menuHeight } = getMenuSize(menuElement);
@@ -80,7 +81,6 @@ document.addEventListener('contextmenu', (event) => {
     if (y + menuHeight > window.innerHeight) {
         y = window.innerHeight - (menuHeight + 10);
     }
-
 
     menuModule.open(x, y);
 });
@@ -99,3 +99,4 @@ menuElement.addEventListener('click', (event) => {
         menuModule.close();
     }
 })
+
