@@ -2,6 +2,7 @@ import { Menu } from './core/menu'
 import { MessageModule } from './modules/timur-message.module.js'
 import { randomBackgroundColor } from './modules/Dmitry-randomBackgroundColor.module.js';
 import { BoardModule } from './modules/Vlad-board.module.js';
+import { RandomFigure } from './modules/Almaz-randomFigure.module.js';
 
 
 export class ContextMenu extends Menu {
@@ -61,11 +62,13 @@ const menuElement = document.querySelector("#menu");
 
 const randomBackgroundModule = new randomBackgroundColor();
 const boardModule = new BoardModule();
+const randomFigure = new RandomFigure();
 
 
 menuModule.add(messageModule.toHTML());
 menuModule.add(randomBackgroundModule.toHTML());
 menuModule.add(boardModule.toHTML());
+menuModule.add(randomFigure.toHTML());
 
 document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
@@ -96,6 +99,10 @@ menuElement.addEventListener('click', (event) => {
     }
     if (event.target.dataset.type === "board") {
         boardModule.trigger();
+        menuModule.close();
+    }
+    if (event.target.dataset.type === "randomFigure") {
+        randomFigure.trigger();
         menuModule.close();
     }
 })
