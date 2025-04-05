@@ -15,7 +15,7 @@ export class ContextMenu extends Menu {
     }
 
     add(module) {
-        this.el.innerHTML = module;
+        this.el.innerHTML += module;
     }
 
     close() {
@@ -23,15 +23,59 @@ export class ContextMenu extends Menu {
     }
 }
 
+function getMenuSize(menuElement) {
+    const prevDisplay = menuElement.style.display;
+    const prevVisibility = menuElement.style.visibility;
+    const prevTop = menuElement.style.top;
+    const prevLeft = menuElement.style.left;
+
+    let needRestore = false;
+
+    if (getComputedStyle(menuElement).display === 'none') {
+        menuElement.style.visibility = 'hidden';
+        menuElement.style.display = 'block';
+        menuElement.style.top = '-9999px';
+        menuElement.style.left = '-9999px';
+        needRestore = true;
+    }
+
+    const width = menuElement.offsetWidth;
+    const height = menuElement.offsetHeight;
+
+    if (needRestore) {
+        menuElement.style.display = prevDisplay;
+        menuElement.style.visibility = prevVisibility;
+        menuElement.style.top = prevTop;
+        menuElement.style.left = prevLeft;
+    }
+
+    return { width, height };
+}
+
 const messageModule = new MessageModule();
 const menuModule = new ContextMenu('#menu');
 const menuElement = document.querySelector('#menu');
+
 
 menuModule.add(messageModule.toHTML());
 
 document.addEventListener('contextmenu', (event) => {
     event.preventDefault();
-    menuModule.open(event.clientX, event.clientY);
+
+    const { width: menuWidth, height: menuHeight } = getMenuSize(menuElement);
+
+    let x = event.clientX;
+    let y = event.clientY;
+
+    if (x + menuWidth > window.innerWidth) {
+        x = window.innerWidth - (menuWidth + 10);
+    }
+    if (y + menuHeight > window.innerHeight) {
+        y = window.innerHeight - (menuHeight + 10);
+    }
+
+
+    menuModule.open(x, y);
 });
 
 menuElement.addEventListener('click', (event) => {
