@@ -1,94 +1,167 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    height: 100vh;
-    width: 100%;
-    padding: 2rem;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  transition: 1.1s ease;
 }
 
 .menu {
-    position: fixed;
-    z-index: 1000;
-    width: 150px;
-    background: #1b1a1a;
-    border-radius: 5px;
-    display: none;
-    list-style: none;
+  position: fixed;
+  z-index: 1000;
+  background: #1b1a1a;
+  border-radius: 5px;
+  list-style: none;
+
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .menu.open {
-    display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .menu .menu-item {
-    padding: 8px 10px;
-    font-size: 1rem;
-    color: #eee;
-    cursor: pointer;
-    transition: background-color .2s ease-in;
-    border-radius: inherit;
+  padding: 8px 10px;
+  font-size: 1rem;
+  color: #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+  border-radius: inherit;
 }
 
 .menu .menu-item:hover {
-    background: #343434;
+  background: #343434;
 }
 
+.message-module {
+  margin-bottom: 20px;
+  max-width: max-content;
+  padding: 10px 20px;
+
+  font-size: 15px;
+  font-weight: 500;
+  color: #343434;
+
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  background: #fff;
+
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.message-module.open {
+  opacity: 1;
+}
+
+.boardContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+}
+
+.boardSquare {
+  width: 16px;
+  height: 16px;
+  background-color: #1d1d1d;
+  margin: 2px;
+  box-shadow: 0 0 2px #000;
+  transition: 1.1s ease;
+}
+
+.boardSquare:hover {
+  transition-duration: 0s;
+}
+
+.boardBtn {
+  width: 120px;
+  height: 40px;
+  background-color: #1d1d1d;
+  color: white;
+  border: 1px solid white;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 1.1s ease;
+}
+
+.boardBtn:hover {
+  background-color: white;
+  color: #1d1d1d;
+  border-color: #1d1d1d;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+
 .jokes-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .jokes-modal__content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 500px;
-    width: 80%;
-    position: relative;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 80%;
+  position: relative;
 }
 
 .jokes-modal__setup {
-    font-size: 18px;
-    margin-bottom: 20px;
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
 .jokes-modal__punchline {
-    font-size: 16px;
-    color: #666;
-    cursor: pointer;
-    filter: blur(5px);
-    transition: filter 0.3s;
-    margin-bottom: 20px;
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+  filter: blur(5px);
+  transition: filter 0.3s;
+  margin-bottom: 20px;
 }
 
 .jokes-modal__punchline--visible {
-    filter: none;
+  filter: none;
 }
 
 .jokes-modal__close-button {
-    padding: 8px 16px;
-    background-color: #f0f0f0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .jokes-modal__close-button:hover {
-    background-color: #e0e0e0;
+  background-color: #e0e0e0;
 }
