@@ -1,7 +1,7 @@
 import { Menu } from "./core/menu";
 import { MessageModule } from "./modules/timur-message.module.js";
 import { randomBackgroundColor } from "./modules/Dmitry-randomBackgroundColor.module.js";
-import { RandomFigure } from "./modules/randomFigure.module";
+import { RandomFigure } from "./modules/Almaz-randomFigure.module.js";
 
 export class ContextMenu extends Menu {
   constructor(selector) {

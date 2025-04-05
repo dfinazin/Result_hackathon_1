@@ -1,20 +1,8 @@
-
+<<<<<<< HEAD
 node_modules
-core
-
-babel.config.json
-package-lock.json
-package.json
-README.md
-webpack.config.js
-
-app.js
-index.html
-menu.js
-menu.css
-styles.css
-
-background.module.js
-clicks.module.js
-Dmitry-randomBackgroundColor.module.js
-shape.module.js
+=======
+# compiled output
+/dist
+/node_modules
+/build
+>>>>>>> dev
