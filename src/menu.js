@@ -1,5 +1,5 @@
 import { Menu } from './core/menu'
-import { MessageModule } from './modules/Timur-message.module.js'
+import { MessageModule } from './modules/timur-message.module.js'
 
 export class ContextMenu extends Menu {
     constructor(selector) {
