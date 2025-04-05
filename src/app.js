@@ -1,4 +1,5 @@
 import "./styles.css";
+import "./menu.js";
 import { RandomFigure } from "./modules/randomFigure.module";
 
 const test2 = new RandomFigure();

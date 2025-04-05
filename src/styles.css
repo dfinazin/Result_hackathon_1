@@ -17,15 +17,20 @@ body {
 .menu {
     position: fixed;
     z-index: 1000;
-    width: 150px;
     background: #1b1a1a;
     border-radius: 5px;
-    display: none;
     list-style: none;
+
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .menu.open {
-    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 .menu .menu-item {
@@ -39,4 +44,25 @@ body {
 
 .menu .menu-item:hover {
     background: #343434;
+}
+
+.message-module {
+    margin-bottom: 20px;
+    max-width: max-content;
+    padding: 10px 20px;
+
+    font-size: 15px;
+    font-weight: 500;
+    color: #343434;
+
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, .25);
+    border-radius: 4px;
+    background: #fff;
+
+    transition: all .5s ease;
+    opacity: 0;
+}
+
+.message-module.open {
+    opacity: 1;
 }
