@@ -112,3 +112,140 @@ body {
   border-color: #1d1d1d;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
+
+
+.jokes-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.jokes-modal__content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  min-height: 250px;
+}
+
+.jokes-modal__setup {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+.jokes-modal__punchline {
+  font-size: 1.1rem;
+  color: #666;
+  cursor: pointer;
+  filter: blur(5px);
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  line-height: 1.4;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+.jokes-modal__punchline--visible {
+  filter: none;
+  background-color: #f0f0f0;
+}
+
+.jokes-modal__buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.jokes-modal__close-button,
+.jokes-modal__refresh-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.jokes-modal__close-button {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.jokes-modal__close-button:hover {
+  background-color: #e0e0e0;
+}
+
+.jokes-modal__refresh-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.jokes-modal__refresh-button:hover {
+  background-color: #45a049;
+}
+
+.jokes-modal__loader-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  z-index: 10;
+}
+
+.jokes-modal__loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4CAF50;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+.jokes-modal__loading-text {
+  color: #666;
+  font-size: 1rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.jokes-modal__error {
+  text-align: center;
+  padding: 20px;
+}
+
+.jokes-modal__error-message {
+  color: #d32f2f;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
