@@ -3,6 +3,7 @@ import { MessageModule } from './modules/timur-message.module.js'
 import { randomBackgroundColor } from './modules/Dmitry-randomBackgroundColor.module.js';
 import { BoardModule } from './modules/Vlad-board.module.js';
 import { RandomFigure } from './modules/Almaz-randomFigure.module.js';
+import { JokesModule } from './modules/kritprogram-jokes.module.js';
 
 
 export class ContextMenu extends Menu {
@@ -63,12 +64,14 @@ const menuElement = document.querySelector("#menu");
 const randomBackgroundModule = new randomBackgroundColor();
 const boardModule = new BoardModule();
 const randomFigure = new RandomFigure();
+const jokesModule = new JokesModule();
 
 
 menuModule.add(messageModule.toHTML());
 menuModule.add(randomBackgroundModule.toHTML());
 menuModule.add(boardModule.toHTML());
 menuModule.add(randomFigure.toHTML());
+menuModule.add(jokesModule.toHTML());
 
 document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
@@ -103,6 +106,10 @@ menuElement.addEventListener('click', (event) => {
     }
     if (event.target.dataset.type === "randomFigure") {
         randomFigure.trigger();
+        menuModule.close();
+    }
+    if (event.target.dataset.type === "jokes") {
+        jokesModule.trigger();
         menuModule.close();
     }
 })
