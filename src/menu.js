@@ -1,5 +1,6 @@
 import { Menu } from './core/menu'
 import { MessageModule } from './modules/timur-message.module.js'
+import { randomBackgroundColor } from './modules/Dmitry-randomBackgroundColor.module.js';
 
 export class ContextMenu extends Menu {
     constructor(selector) {
@@ -56,8 +57,11 @@ const messageModule = new MessageModule();
 const menuModule = new ContextMenu('#menu');
 const menuElement = document.querySelector('#menu');
 
+const randomBackgroundModule = new randomBackgroundColor();
+
 
 menuModule.add(messageModule.toHTML());
+menuModule.add(randomBackgroundModule.toHTML());
 
 document.addEventListener('contextmenu', (event) => {
     event.preventDefault();
@@ -81,6 +85,10 @@ document.addEventListener('contextmenu', (event) => {
 menuElement.addEventListener('click', (event) => {
     if (event.target.dataset.type === "message") {
         messageModule.trigger("Здесь находится какой то текст");
+        menuModule.close();
+    }
+    if (event.target.dataset.type === "randomBackgroundColor") {
+        randomBackgroundModule.trigger();
         menuModule.close();
     }
 })
