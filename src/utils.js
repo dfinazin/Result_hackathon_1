@@ -3,14 +3,14 @@ export function random(min, max) {
 }
 
 export function getRandomColorRGB() {
-  return `rgb(${Math.round(Math.random()*255)}, ${Math.round(Math.random()*255)}, ${Math.round(Math.random()*255)})`
+  return `rgb(${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)})`
 }
 
-export  function getRandomColorHex() {
-  const chars ='0123456789abcdef'
+export function getRandomColorHex() {
+  const chars = '0123456789abcdef'
   let colorHex = '#'
   for (let i = 0; i < 6; i += 1) {
-      colorHex += chars[Math.round(Math.random() * 15)] 
+    colorHex += chars[Math.round(Math.random() * 15)]
   }
   return colorHex
 }
