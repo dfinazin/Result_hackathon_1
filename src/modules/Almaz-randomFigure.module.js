@@ -22,8 +22,6 @@ export class RandomFigure extends Module {
     const figureWidth = random(minSizeFigure, bodyWidth - minLeftFigure - minSizeFigure);
     const figureRadius = random(0, 1) * 50;
 
-    
-
     const figureTop = random(minTopFigure, bodyHeight - figureHeight);
     const figureLeft = random(minLeftFigure, bodyWidth - figureWidth);
     const maxAngleDeg = this.#maxRotateElement(figureTop,figureLeft,figureHeight,figureWidth,bodyHeight,bodyWidth);
