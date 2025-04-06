@@ -4,6 +4,7 @@ import { randomBackgroundColor } from './modules/Dmitry-randomBackgroundColor.mo
 import { BoardModule } from './modules/Vlad-board.module.js';
 import { RandomFigure } from './modules/Almaz-randomFigure.module.js';
 import { JokesModule } from './modules/kritprogram-jokes.module.js';
+import { CryptoVolumeModule } from './modules/timur-crypto.module.js';
 
 
 export class ContextMenu extends Menu {
@@ -65,6 +66,7 @@ const randomBackgroundModule = new randomBackgroundColor();
 const boardModule = new BoardModule();
 const randomFigure = new RandomFigure();
 const jokesModule = new JokesModule();
+const cryptoModule = new CryptoVolumeModule();
 
 
 menuModule.add(messageModule.toHTML());
@@ -72,6 +74,7 @@ menuModule.add(randomBackgroundModule.toHTML());
 menuModule.add(boardModule.toHTML());
 menuModule.add(randomFigure.toHTML());
 menuModule.add(jokesModule.toHTML());
+menuModule.add(cryptoModule.toHTML());
 
 document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
@@ -110,6 +113,10 @@ menuElement.addEventListener('click', (event) => {
     }
     if (event.target.dataset.type === "jokes") {
         jokesModule.trigger();
+        menuModule.close();
+    }
+    if (event.target.dataset.type === "crypto") {
+        cryptoModule.trigger();
         menuModule.close();
     }
 })

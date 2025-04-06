@@ -249,3 +249,34 @@ body {
   margin-bottom: 20px;
   font-size: 1rem;
 }
+
+.crypto-module {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  color: #0f0;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 16px;
+  box-shadow: 0 0 15px #0f0;
+  z-index: 9999;
+  max-width: 90%;
+}
+
+.crypto-module h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-align: center;
+  color: #00ffff;
+}
+
+.crypto-module ul {
+  list-style: none;
+}
+
+.crypto-module li {
+  margin: 4px 0;
+}
