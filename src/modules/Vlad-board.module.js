@@ -47,7 +47,7 @@ export class BoardModule extends Module {
       square.addEventListener('mouseleave', () => this.removeColor(square))
 
       this.#btn.addEventListener('click', () => {
-        this.removeBoard()
+        this.remove()
       })
 
       this.#board.append(square)
@@ -72,7 +72,7 @@ export class BoardModule extends Module {
     el.style.boxShadow = `0 0 2px #000`
   }
 
-  removeBoard() {
+  remove() {
     this.#board.remove()
     this.#btn.remove()
     this.#body.style.background = ''
