@@ -46,10 +46,6 @@ export class countdownTimerModule extends Module {
     this.#timer.id = 'timer'
     this.#timerBlock.append(this.#timer)
 
-    this.#timerBlock.style.width = '168px'
-    this.#timerBlock.style.height = '50px'
-    this.#timerBlock.style.backgroundColor = '#addef6'
-
     this.#minutesInTheTimer = 0
     this.#startTime = 0
     this.#stopTime = 0
