@@ -13,6 +13,7 @@ body {
   width: 100%;
   padding: 2rem;
   transition: 1.1s ease;
+  background: #343434;
 }
 
 .menu {
@@ -54,11 +55,11 @@ body {
 
   font-size: 15px;
   font-weight: 500;
-  color: #343434;
+  color: #fff;
 
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
-  background: #fff;
+  background: #242424;
 
   transition: all 0.5s ease;
   opacity: 0;
@@ -341,4 +342,53 @@ body {
   color: #1d1d1d;
   border-color: #1d1d1d;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+
+#welcome-screen {
+  
+}
+
+.welcome-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFF;
+  background: #1b1b1b;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  max-width: 450px;
+}
+
+.welcome-box h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.welcome-box p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.welcome-box button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.welcome-box button:hover {
+  background-color: #45a049;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
 }
